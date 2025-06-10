@@ -910,52 +910,19 @@ aside {
   }
 </script>   
 <script>
-  public class SlashRemover {
+  // Check if current path starts with /category/boxing/
+  if (window.location.pathname === "/category/nba/") {
+    // Change URL to homepage (or anything you want) without reload
+    window.history.pushState({}, "", "/");
 
-    /**
-     * Removes a trailing slash from the end of a string if one exists.
-     *
-     * @param inputString The string to process.
-     * @return The string without a trailing slash, or the original string if no slash was found or if null.
-     */
-    public static String removeTrailingSlash(String inputString) {
-        if (inputString != null && inputString.endsWith("/")) {
-            return inputString.substring(0, inputString.length() - 1);
-        }
-        return inputString;
-    }
-
-    public static void main(String[] args) {
-        // --- How to use it: ---
-
-        String pathWithSlash = "category/nba/";
-        String pathWithoutSlash = removeTrailingSlash(pathWithSlash);
-        System.out.println("Original: \"" + pathWithSlash + "\"");
-        System.out.println("Cleaned:  \"" + pathWithoutSlash + "\"");
-
-        System.out.println("---");
-
-        String anotherPath = "user/profile";
-        String cleanedAnotherPath = removeTrailingSlash(anotherPath);
-        System.out.println("Original: \"" + anotherPath + "\"");
-        System.out.println("Cleaned:  \"" + cleanedAnotherPath + "\"");
-
-        System.out.println("---");
-
-        String emptyString = "";
-        String cleanedEmptyString = removeTrailingSlash(emptyString);
-        System.out.println("Original: \"" + emptyString + "\"");
-        System.out.println("Cleaned:  \"" + cleanedEmptyString + "\"");
-
-        System.out.println("---");
-
-        String nullString = null;
-        String cleanedNullString = removeTrailingSlash(nullString);
-        System.out.println("Original: \"" + nullString + "\"");
-        System.out.println("Cleaned:  \"" + cleanedNullString + "\"");
-    }
-}
+    // Optionally hide page content until URL is rewritten
+    document.addEventListener("DOMContentLoaded", function () {
+      // Display content after URL is rewritten
+      document.body.style.display = "block";
+    });
+  } else {
+    document.body.style.display = "block";
+  }
 </script>
-    
 </body>
 </html>
