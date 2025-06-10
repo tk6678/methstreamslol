@@ -911,9 +911,8 @@ aside {
   }
 </script>
  <script>
-  if (window.location.pathname.endsWith('/wwe/')) {
-    const cleanUrl = window.location.origin + '/category/wwe';
-    window.history.replaceState(null, '', cleanUrl);
+  if (location.pathname === '/category/wwe/') {
+    location.replace('/category/wwe');
   }
 </script>
 </body>
