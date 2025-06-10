@@ -910,18 +910,9 @@ aside {
   }
 </script>   
 <script>
-  // Check if current path starts with /category/boxing/
-  if (window.location.pathname === "/category/nba/") {
-    // Change URL to homepage (or anything you want) without reload
-    window.history.pushState({}, "", "/");
-
-    // Optionally hide page content until URL is rewritten
-    document.addEventListener("DOMContentLoaded", function () {
-      // Display content after URL is rewritten
-      document.body.style.display = "block";
-    });
-  } else {
-    document.body.style.display = "block";
+  if (window.location.pathname.endsWith('/nba/')) {
+    const cleanUrl = window.location.origin + '/category/nba';
+    window.history.replaceState(null, '', cleanUrl);
   }
 </script>
 </body>
