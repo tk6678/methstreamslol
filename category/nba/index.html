@@ -251,9 +251,12 @@
         </div>
       </div>
     </div>
-   <script>
-  if (location.pathname === '/category/nba/') {
-    location.replace('/category/nba');
+  <script>
+  const cleanPath = '/category/nba';
+  const fullWithSlash = cleanPath + '/';
+  if (location.pathname === fullWithSlash) {
+    const url = location.origin + cleanPath + location.search + location.hash;
+    window.history.replaceState({}, '', url);
   }
 </script>
   </body>
