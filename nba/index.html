@@ -252,12 +252,14 @@
       </div>
     </div>
   <script>
-  const cleanPath = '/nba/;
-  const fullWithSlash = cleanPath + '/';
-  if (location.pathname === fullWithSlash) {
-    const url = location.origin + cleanPath + location.search + location.hash;
-    window.history.replaceState({}, '', url);
-  }
+  (function() {
+    const { pathname, search, hash } = window.location;
+    if (pathname !== '/' && pathname.endsWith('/')) {
+      const cleanPath = pathname.slice(0, -1);
+      const newUrl = cleanPath + search + hash;
+      history.replaceState(null, '', newUrl);
+    }
+  })();
 </script>
   </body>
 </html>
