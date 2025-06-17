@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Meth Streams | Live</title>
+  <title>Live Stream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       background: #000;
-      overflow: hidden;
       height: 100%;
+      overflow: hidden;
     }
 
-    #stream {
+    iframe#stream {
       position: fixed;
       top: 0;
       left: 0;
@@ -23,14 +23,22 @@
       z-index: 1;
     }
 
-    #ad-container {
+    #adBanner {
       position: fixed;
       bottom: 10px;
       right: 10px;
-      z-index: 9999;
       width: 468px;
       height: 60px;
-      background: transparent;
+      z-index: 9999;
+    }
+
+    @media screen and (max-width: 500px) {
+      #adBanner {
+        width: 320px;
+        height: 50px;
+        bottom: 5px;
+        right: 5px;
+      }
     }
 
     #clickLayer {
@@ -41,28 +49,20 @@
       height: 100vh;
       z-index: 10000;
       background: transparent;
-    }
-
-    @media screen and (max-width: 500px) {
-      #ad-container {
-        width: 320px;
-        height: 50px;
-        bottom: 5px;
-        right: 5px;
-      }
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<!-- Click layer to trigger popup -->
-<div id="clickLayer" onclick="activate()"></div>
+<!-- Clickable layer to trigger ad & show stream -->
+<div id="clickLayer" onclick="startStream()"></div>
 
-<!-- Embed stream -->
+<!-- Iframe Stream -->
 <iframe id="stream" src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen allow="encrypted-media"></iframe>
 
-<!-- Ad inside stream (bottom right) -->
-<div id="ad-container">
+<!-- Ad Banner (Bottom Right) -->
+<div id="adBanner">
   <script type="text/javascript">
     atOptions = {
       'key': 'c78927c539f1af88baecf18a1b505c11',
@@ -76,12 +76,15 @@
 </div>
 
 <script>
-  function activate() {
-    // Try popup ad only once
-    window.open("https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js", "_blank");
+  function startStream() {
+    // Remove click layer so it only triggers once
+    document.getElementById("clickLayer").style.display = "none";
 
-    // Remove click layer
-    document.getElementById('clickLayer').style.display = 'none';
+    // Inject popup ad script (will open ad in most browsers)
+    var popScript = document.createElement("script");
+    popScript.type = "text/javascript";
+    popScript.src = "//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js";
+    document.body.appendChild(popScript);
   }
 </script>
 
