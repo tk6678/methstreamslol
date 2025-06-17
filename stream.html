@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live Stream</title>
+  <title>Stream with Popup</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
       height: 100%;
+      background: #000;
       overflow: hidden;
     }
 
-    iframe#stream {
+    #stream {
       position: fixed;
       top: 0;
       left: 0;
@@ -32,15 +32,6 @@
       z-index: 9999;
     }
 
-    @media screen and (max-width: 500px) {
-      #adBanner {
-        width: 320px;
-        height: 50px;
-        bottom: 5px;
-        right: 5px;
-      }
-    }
-
     #clickLayer {
       position: fixed;
       top: 0;
@@ -51,17 +42,24 @@
       background: transparent;
       cursor: pointer;
     }
+
+    @media screen and (max-width: 500px) {
+      #adBanner {
+        width: 320px;
+        height: 50px;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- Clickable layer to trigger ad & show stream -->
-<div id="clickLayer" onclick="startStream()"></div>
+<!-- Transparent click layer -->
+<div id="clickLayer" onclick="firePopupAndStart()"></div>
 
-<!-- Iframe Stream -->
+<!-- Stream -->
 <iframe id="stream" src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen allow="encrypted-media"></iframe>
 
-<!-- Ad Banner (Bottom Right) -->
+<!-- Banner ad -->
 <div id="adBanner">
   <script type="text/javascript">
     atOptions = {
@@ -76,15 +74,15 @@
 </div>
 
 <script>
-  function startStream() {
-    // Remove click layer so it only triggers once
-    document.getElementById("clickLayer").style.display = "none";
+  function firePopupAndStart() {
+    // Open popup ad (real method)
+    window.open(
+      'https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js',
+      '_blank'
+    );
 
-    // Inject popup ad script (will open ad in most browsers)
-    var popScript = document.createElement("script");
-    popScript.type = "text/javascript";
-    popScript.src = "//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js";
-    document.body.appendChild(popScript);
+    // Remove the click layer after popup opens
+    document.getElementById("clickLayer").style.display = "none";
   }
 </script>
 
