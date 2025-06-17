@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live Stream</title>
+  <title>Meth Streams | Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       background: #000;
-      height: 100%;
-      width: 100%;
       overflow: hidden;
+      height: 100%;
     }
 
-    iframe {
+    #stream {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       border: none;
-      display: none;
+      z-index: 1;
+    }
+
+    #ad-container {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 9999;
+      width: 468px;
+      height: 60px;
+      background: transparent;
     }
 
     #clickLayer {
@@ -30,32 +39,49 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 9999;
+      z-index: 10000;
       background: transparent;
-      cursor: pointer;
+    }
+
+    @media screen and (max-width: 500px) {
+      #ad-container {
+        width: 320px;
+        height: 50px;
+        bottom: 5px;
+        right: 5px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Transparent layer to capture click -->
-<div id="clickLayer" onclick="startStream()"></div>
+<!-- Click layer to trigger popup -->
+<div id="clickLayer" onclick="activate()"></div>
 
-<!-- Stream iframe (initially hidden) -->
+<!-- Embed stream -->
 <iframe id="stream" src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen allow="encrypted-media"></iframe>
 
-<script>
-  function startStream() {
-    // Hide click layer
-    document.getElementById('clickLayer').style.display = 'none';
-    // Show stream iframe
-    document.getElementById('stream').style.display = 'block';
+<!-- Ad inside stream (bottom right) -->
+<div id="ad-container">
+  <script type="text/javascript">
+    atOptions = {
+      'key': 'c78927c539f1af88baecf18a1b505c11',
+      'format': 'iframe',
+      'height': 60,
+      'width': 468,
+      'params': {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.highperformanceformat.com/c78927c539f1af88baecf18a1b505c11/invoke.js"></script>
+</div>
 
-    // Dynamically insert your ad script
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
-    document.body.appendChild(script);
+<script>
+  function activate() {
+    // Try popup ad only once
+    window.open("https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js", "_blank");
+
+    // Remove click layer
+    document.getElementById('clickLayer').style.display = 'none';
   }
 </script>
 
