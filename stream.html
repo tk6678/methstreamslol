@@ -8,10 +8,10 @@
     html, body {
       margin: 0;
       padding: 0;
+      background: #000;
       height: 100%;
       width: 100%;
       overflow: hidden;
-      background: #000;
     }
 
     iframe {
@@ -21,9 +21,10 @@
       width: 100vw;
       height: 100vh;
       border: none;
+      display: none;
     }
 
-    .click-layer {
+    #clickLayer {
       position: fixed;
       top: 0;
       left: 0;
@@ -37,23 +38,24 @@
 </head>
 <body>
 
-<!-- Clickable transparent layer to trigger ad -->
-<div class="click-layer" onclick="openAd()"></div>
+<!-- Transparent layer to capture click -->
+<div id="clickLayer" onclick="startStream()"></div>
 
-<!-- Stream iframe -->
-<iframe
-  src="https://topembed.pw/channel/TNTSports1%5BUK%5D"
-  allowfullscreen
-  allow="encrypted-media">
-</iframe>
+<!-- Stream iframe (initially hidden) -->
+<iframe id="stream" src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen allow="encrypted-media"></iframe>
 
 <script>
-  function openAd() {
-    // Open your ad in new tab
-    window.open("https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js", "_blank");
+  function startStream() {
+    // Hide click layer
+    document.getElementById('clickLayer').style.display = 'none';
+    // Show stream iframe
+    document.getElementById('stream').style.display = 'block';
 
-    // Hide the click layer forever
-    document.querySelector('.click-layer').style.display = 'none';
+    // Dynamically insert your ad script
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
+    document.body.appendChild(script);
   }
 </script>
 
