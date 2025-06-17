@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Stream with Popup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Live Stream</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       background: #000;
       overflow: hidden;
+      height: 100%;
     }
 
     #stream {
@@ -23,43 +23,45 @@
       z-index: 1;
     }
 
-    #adBanner {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: 468px;
-      height: 60px;
-      z-index: 9999;
-    }
-
     #clickLayer {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 10000;
+      z-index: 9999;
       background: transparent;
       cursor: pointer;
     }
 
-    @media screen and (max-width: 500px) {
+    #adBanner {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 10000;
+      width: 468px;
+      height: 60px;
+    }
+
+    @media(max-width: 500px) {
       #adBanner {
         width: 320px;
         height: 50px;
+        bottom: 5px;
+        right: 5px;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Transparent click layer -->
-<div id="clickLayer" onclick="firePopupAndStart()"></div>
+<!-- Invisible Click Layer -->
+<div id="clickLayer" onclick="launchAds()"></div>
 
-<!-- Stream -->
+<!-- Live Stream -->
 <iframe id="stream" src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen allow="encrypted-media"></iframe>
 
-<!-- Banner ad -->
+<!-- Banner Ad -->
 <div id="adBanner">
   <script type="text/javascript">
     atOptions = {
@@ -73,16 +75,17 @@
   <script type="text/javascript" src="//www.highperformanceformat.com/c78927c539f1af88baecf18a1b505c11/invoke.js"></script>
 </div>
 
+<!-- Popup Ad Script Injected on Click -->
 <script>
-  function firePopupAndStart() {
-    // Open popup ad (real method)
-    window.open(
-      'https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js',
-      '_blank'
-    );
+  function launchAds() {
+    // Inject your popup JS on user interaction
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
+    document.body.appendChild(script);
 
-    // Remove the click layer after popup opens
-    document.getElementById("clickLayer").style.display = "none";
+    // Hide the click layer so it triggers only once
+    document.getElementById('clickLayer').style.display = 'none';
   }
 </script>
 
