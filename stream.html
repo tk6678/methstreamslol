@@ -4,22 +4,58 @@
   <meta charset="UTF-8">
   <title>Live Stream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    // Open your ad once when page loads
-    window.onload = function() {
-      window.open("https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js", "_blank");
-    };
-  </script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+
+    .click-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background: transparent;
+      cursor: pointer;
+    }
+  </style>
 </head>
-<body style="margin:0; padding:0; background:#000; overflow:hidden;">
-  <iframe
-    src="https://topembed.pw/channel/TNTSports1%5BUK%5D"
-    width="100%"
-    height="100%"
-    frameborder="0"
-    allowfullscreen
-    allow="encrypted-media"
-    style="border:none; position:fixed; top:0; left:0; width:100vw; height:100vh;">
-  </iframe>
+<body>
+
+<!-- Clickable transparent layer to trigger ad -->
+<div class="click-layer" onclick="openAd()"></div>
+
+<!-- Stream iframe -->
+<iframe
+  src="https://topembed.pw/channel/TNTSports1%5BUK%5D"
+  allowfullscreen
+  allow="encrypted-media">
+</iframe>
+
+<script>
+  function openAd() {
+    // Open your ad in new tab
+    window.open("https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js", "_blank");
+
+    // Hide the click layer forever
+    document.querySelector('.click-layer').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
