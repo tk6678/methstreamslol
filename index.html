@@ -2,55 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Meth Streams - Free Live Sports</title>
+  <title>Live Sports Stream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      background: #000;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    #stream {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      border: none;
+      z-index: 1;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      color: #22c55e;
+    #clickLayer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      background: transparent;
+      cursor: pointer;
     }
 
-    p {
-      font-size: 1.2rem;
-      color: #aaa;
-      max-width: 600px;
-      margin-bottom: 30px;
+    #adBanner {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 10000;
+      width: 468px;
+      height: 60px;
     }
 
-    a {
-      background-color: #22c55e;
-      color: #000;
-      padding: 12px 28px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    a:hover {
-      background-color: #16a34a;
+    @media(max-width: 500px) {
+      #adBanner {
+        width: 320px;
+        height: 50px;
+        bottom: 5px;
+        right: 5px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Meth Streams</h1>
-  <p>Enjoy free access to premium live sports streams from around the world. No signup, no limits — just pure action.</p>
-  <a href="/nhl-sportsnet[one].html">Watch Now</a>
+  <!-- Invisible Click Layer to Trigger Popup Ad -->
+  <div id="clickLayer" onclick="launchAds()"></div>
+
+  <!-- Live Stream Embed -->
+  <iframe id="stream"
+    src="https://topembed.pw/channel/SportsnetOne%5BCanada%5D"
+    allowfullscreen allow="encrypted-media">
+  </iframe>
+
+  <!-- Bottom Banner Ad -->
+  <div id="adBanner">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '078f5bc3011c5d4abbc3e4060757e9df',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+      };
+    </script>
+    <script type="text/javascript" src="//gainedspotsspun.com/078f5bc3011c5d4abbc3e4060757e9df/invoke.js"></script>
+  </div>
+
+  <!-- Popup Script on Click -->
+  <script>
+    function launchAds() {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
+      document.body.appendChild(script);
+      document.getElementById('clickLayer').style.display = 'none';
+    }
+  </script>
+
 </body>
 </html>
