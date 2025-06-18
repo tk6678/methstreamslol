@@ -2,28 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NHL - Sportsnet[one]</title>
+  <title>NHL - Sportsnet[One]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="./output.css" />
+              <link href="./output" rel="stylesheet"/>
+  <style>
+    frame::-internal-media-controls-overlay-cast-button,
+    iframe::cue {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
+
+<!-- Popup Trigger -->
 <div id="clickLayer" onclick="launchAds()"></div>
-<iframe id="stream"
-src="https://topembed.pw/channel/SportsnetOne%5BCanada%5D" 
-allowfullscreen allow="encrypted-media"></iframe>
+
+<!-- Live Stream Iframe -->
+<iframe
+  id="stream"
+  src="https://topembed.pw/channel/SportsnetOne%5BCanada%5D"
+  allowfullscreen
+  allow="encrypted-media"
+></iframe>
+
 <!-- Banner Ad -->
 <div id="adBanner">
   <script type="text/javascript">
     atOptions = {
-      'key': 'c78927c539f1af88baecf18a1b505c11',
+      'key': '078f5bc3011c5d4abbc3e4060757e9df',
       'format': 'iframe',
-      'height': 60,
-      'width': 468,
+      'height': 50,
+      'width': 320,
       'params': {}
     };
   </script>
-  <script type="text/javascript" src="//www.highperformanceformat.com/c78927c539f1af88baecf18a1b505c11/invoke.js"></script>
+  <script type="text/javascript" src="//gainedspotsspun.com/078f5bc3011c5d4abbc3e4060757e9df/invoke.js"></script>
 </div>
+
+<!-- Popup Ad Script -->
 <script>
   function launchAds() {
     var script = document.createElement('script');
@@ -33,12 +49,15 @@ allowfullscreen allow="encrypted-media"></iframe>
     document.getElementById('clickLayer').style.display = 'none';
   }
 </script>
+
+<!-- Hidden Who's Among Us Widget -->
 <div style="display: none; visibility: hidden; width: 0; height: 0; overflow: hidden;">
   <script id="_wauz10">
-    var _wau = _wau || []; 
+    var _wau = _wau || [];
     _wau.push(["dynamic", "2eoj4ssao8", "z10", "c4302bffffff", "small"]);
   </script>
   <script async src="//waust.at/d.js"></script>
 </div>
+
 </body>
 </html>
