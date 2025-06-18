@@ -2,44 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NHL - Sportsnet[One]</title>
+  <title>NHL - Sportsnet[one]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output" rel="stylesheet"/>
-  <style>
-    frame::-internal-media-controls-overlay-cast-button,
-    iframe::cue {
-      display: none !important;
-    }
-  </style>
+   <link rel="stylesheet" href="./output.css" />
 </head>
 <body>
-
-<!-- Popup Trigger -->
 <div id="clickLayer" onclick="launchAds()"></div>
-
-<!-- Live Stream Iframe -->
-<iframe
-  id="stream"
-  src="https://topembed.pw/channel/SportsnetOne%5BCanada%5D"
-  allowfullscreen
-  allow="encrypted-media"
-></iframe>
-
+<iframe id="stream"
+src="https://topembed.pw/channel/SportsnetOne%5BCanada%5D" 
+allowfullscreen allow="encrypted-media"></iframe>
 <!-- Banner Ad -->
 <div id="adBanner">
   <script type="text/javascript">
-    atOptions = {
-      'key': '078f5bc3011c5d4abbc3e4060757e9df',
-      'format': 'iframe',
-      'height': 50,
-      'width': 320,
-      'params': {}
-    };
-  </script>
-  <script type="text/javascript" src="//gainedspotsspun.com/078f5bc3011c5d4abbc3e4060757e9df/invoke.js"></script>
+	atOptions = {
+		'key' : '078f5bc3011c5d4abbc3e4060757e9df',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//gainedspotsspun.com/078f5bc3011c5d4abbc3e4060757e9df/invoke.js"></script>
 </div>
-
-<!-- Popup Ad Script -->
 <script>
   function launchAds() {
     var script = document.createElement('script');
@@ -49,15 +33,12 @@
     document.getElementById('clickLayer').style.display = 'none';
   }
 </script>
-
-<!-- Hidden Who's Among Us Widget -->
 <div style="display: none; visibility: hidden; width: 0; height: 0; overflow: hidden;">
   <script id="_wauz10">
-    var _wau = _wau || [];
+    var _wau = _wau || []; 
     _wau.push(["dynamic", "2eoj4ssao8", "z10", "c4302bffffff", "small"]);
   </script>
   <script async src="//waust.at/d.js"></script>
 </div>
-
 </body>
 </html>
