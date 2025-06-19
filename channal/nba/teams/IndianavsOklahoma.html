@@ -8,42 +8,57 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       background: #000;
+      height: 100%;
       overflow: hidden;
     }
-    iframe {
+    #stream {
+      display: none;
       width: 100%;
       height: 100vh;
       border: none;
-      display: block;
+    }
+    #msg {
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      padding-top: 40vh;
     }
   </style>
 </head>
 <body>
 
-  <!-- Live Stream Embed -->
-  <iframe
-    src="https://topembed.pw/channel/TNTSports1[UK]"
-    allowfullscreen
-    frameborder="0"
-    scrolling="no"
-    loading="lazy">
+  <!-- Message while ads run -->
+  <div id="msg">Please wait... Opening ads to unlock stream (4 steps)</div>
+
+  <!-- Hidden Iframe (will show after 4 ad triggers) -->
+  <iframe id="stream" allowfullscreen frameborder="0" scrolling="no"
+    src="https://topembed.pw/channel/TNTSports1[UK]">
   </iframe>
 
-  <!-- Your Ad Script (4 Times) -->
   <script>
-    let count = 0;
-    let interval = setInterval(() => {
-      if (count < 4) {
-        let ad = document.createElement('script');
-        ad.src = "//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js";
-        document.body.appendChild(ad);
-        count++;
+    let adCount = 0;
+
+    function openAd() {
+      let win = window.open('//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js', '_blank');
+      if (win) {
+        adCount++;
+        document.getElementById("msg").innerText = `Ad ${adCount}/4 opened...`;
       } else {
-        clearInterval(interval);
+        alert("Please allow popups for this site to unlock stream.");
       }
-    }, 2000); // every 2 seconds
+
+      // When 4 ads opened, show stream
+      if (adCount >= 4) {
+        document.getElementById("msg").style.display = "none";
+        document.getElementById("stream").style.display = "block";
+        clearInterval(adInterval);
+      }
+    }
+
+    // Run ad opener every 3 sec (total 4 times)
+    let adInterval = setInterval(openAd, 3000);
   </script>
 
 </body>
