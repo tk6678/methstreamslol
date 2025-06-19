@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NBA</title>
+  <title>Stream With Pop Ads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     html, body { margin: 0; padding: 0; background: #000; height: 100%; overflow: hidden; }
@@ -11,33 +11,28 @@
   </style>
 </head>
 <body>
-<div id="clickLayer" onclick="fireAds()"></div>
-<iframe id="streamIframe"
-  src="https://topembed.pw/channel/TNTSports1%5BUK%5D"
-  allowfullscreen allow="encrypted-media"></iframe>
+
+<div id="clickLayer" onclick="showAds()"></div>
+
+<iframe id="streamIframe" 
+src="https://topembed.pw/channel/TNTSports1%5BUK%5D" 
+allowfullscreen allow="encrypted-media"></iframe>
+
 <script>
-  let count = 0;
-  function fireAds() {
-    count++;
-    if (count === 1 || count === 3 || count === 5) {
-      let s = document.createElement('script');
-      s.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
-      document.body.appendChild(s);
+  let adClick = 0;
+
+  function showAds() {
+    adClick++;
+
+    if (adClick === 1 || adClick === 3 || adClick === 5) {
+      window.open('https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js', '_blank');
     }
-    if (count === 2) {
-      let s = document.createElement('script');
-      s.src = '//acscdn.com/script/aclib.js';
-      s.onload = function () {
-        aclib.runPop({ zoneId: '10085650' });
-      };
-      document.body.appendChild(s);
+
+    if (adClick === 2) {
+      window.open('https://acscdn.com/script/aclib.js', '_blank');
     }
-    if (count === 4) {
-      let s = document.createElement('script');
-      s.src = '//example.com/fake-embed-ad.js'; // 👉 If not needed, remove this block
-      document.body.appendChild(s);
-    }
-    if (count === 6) {
+
+    if (adClick === 6) {
       document.getElementById("clickLayer").style.display = "none";
       document.getElementById("streamIframe").style.display = "block";
     }
