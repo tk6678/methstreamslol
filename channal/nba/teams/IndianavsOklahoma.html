@@ -2,41 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Stream With Pop Ads</title>
+  <title>Live Stream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    html, body { margin: 0; padding: 0; background: #000; height: 100%; overflow: hidden; }
-    #clickLayer { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: transparent; cursor: pointer; }
-    #streamIframe { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 1; }
+    html,body{margin:0;padding:0;background:#000;height:100%;overflow:hidden}
+    #clickLayer{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;cursor:pointer;background:transparent}
+    iframe{position:fixed;top:0;left:0;width:100vw;height:100vh;border:none;z-index:1}
   </style>
 </head>
 <body>
-
-<div id="clickLayer" onclick="showAds()"></div>
-
-<iframe id="streamIframe" 
-src="https://topembed.pw/channel/TNTSports1%5BUK%5D" 
-allowfullscreen allow="encrypted-media"></iframe>
-
-<script>
-  let adClick = 0;
-
-  function showAds() {
-    adClick++;
-
-    if (adClick === 1 || adClick === 3 || adClick === 5) {
-      window.open('https://pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js', '_blank');
-    }
-
-    if (adClick === 2) {
-      window.open('https://acscdn.com/script/aclib.js', '_blank');
-    }
-
-    if (adClick === 6) {
-      document.getElementById("clickLayer").style.display = "none";
-      document.getElementById("streamIframe").style.display = "block";
-    }
-  }
-</script>
+  <div id="clickLayer" onclick="runPopups()"></div>
+  <iframe src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen allow="encrypted-media"></iframe>
+  
+  <script src="ad-runner.js"></script>
 </body>
 </html>
