@@ -2,52 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NBA - Indiana Pacers Vs Oklahoma City Thunder</title>
+  <title>NBA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    html, body {margin:0; padding:0; background:#000; height:100%; overflow:hidden}
-    #a {position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:9999; background:transparent; cursor:pointer}
-    #b {position:fixed; top:0; left:0; width:100vw; height:100vh; border:none; z-index:1; display:none}
+    html, body { margin: 0; padding: 0; background: #000; height: 100%; overflow: hidden; }
+    #clickLayer { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; background: transparent; cursor: pointer; }
+    #streamIframe { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 1; }
   </style>
 </head>
 <body>
-  <div id="a" onclick="z()"></div>
-  <iframe id="b" 
-    src="https://topembed.pw/channel/TNTSports1%5BUK%5D" 
-    allowfullscreen allow="encrypted-media"></iframe>
-  <script>
-    let p = 0;
-    function z() {
-      p++;
-      if (p == 1 || p == 2 || p == 3) {
-        let s = document.createElement('script');
-        s.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
-        document.body.appendChild(s);
-      } else if (p == 4) {
-        let s = document.createElement('script');
-        s.src = '//acscdn.com/script/aclib.js';
-        s.onload = function() {
-          aclib.runPop({ zoneId: "10085650" });
-        };
-        document.body.appendChild(s);
-      } else if (p == 5) {
-        let s = document.createElement('script');
-        s.src = '//example.com/embed-popup.js';
-        document.body.appendChild(s);
-      } else if (p == 6) {
-        document.getElementById("a").style.display = "none";
-        document.getElementById("b").style.display = "block";
-      }
+<div id="clickLayer" onclick="fireAds()"></div>
+<iframe id="streamIframe"
+  src="https://topembed.pw/channel/TNTSports1%5BUK%5D"
+  allowfullscreen allow="encrypted-media"></iframe>
+<script>
+  let count = 0;
+  function fireAds() {
+    count++;
+    if (count === 1 || count === 3 || count === 5) {
+      let s = document.createElement('script');
+      s.src = '//pl16114040.profitableratecpm.com/21/1c/db/211cdb34f125d154b6b894159ed8397b.js';
+      document.body.appendChild(s);
     }
-  </script>
-
-  <!-- Hidden WAU Tracker -->
-  <div style="display:none;visibility:hidden;width:0;height:0;overflow:hidden;">
-    <script id="_waugs1">
-      var _wau = _wau || [];
-      _wau.push(["dynamic", "3gr1ydj5bg", "gs1", "c4302bffffff", "small"]);
-    </script>
-    <script async src="//waust.at/d.js"></script>
-  </div>
+    if (count === 2) {
+      let s = document.createElement('script');
+      s.src = '//acscdn.com/script/aclib.js';
+      s.onload = function () {
+        aclib.runPop({ zoneId: '10085650' });
+      };
+      document.body.appendChild(s);
+    }
+    if (count === 4) {
+      let s = document.createElement('script');
+      s.src = '//example.com/fake-embed-ad.js'; // 👉 If not needed, remove this block
+      document.body.appendChild(s);
+    }
+    if (count === 6) {
+      document.getElementById("clickLayer").style.display = "none";
+      document.getElementById("streamIframe").style.display = "block";
+    }
+  }
+</script>
 </body>
 </html>
