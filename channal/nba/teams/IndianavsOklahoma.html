@@ -5,11 +5,41 @@
   <title>TNTSports1 [UK] Stream</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <style>
-    html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden}
-    iframe{width:100%;height:100vh;border:0;display:block}
-    #_wauarz,#histats_counter{display:none!important}
-    #adBanner{position:fixed;bottom:10px;right:10px;z-index:9999}
-    @media(max-width:500px){#adBanner{width:320px;height:50px;bottom:5px;right:5px}}
+    html,body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: 0;
+      display: block;
+    }
+    #_wauarz, #histats_counter {
+      display: none !important;
+    }
+
+    #adBanner {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 9999;
+      background: #000;
+      padding: 5px;
+      box-sizing: content-box;
+    }
+
+    @media(max-width: 500px) {
+      #adBanner {
+        width: 320px;
+        height: 50px;
+        bottom: 5px;
+        right: 5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -21,22 +51,21 @@
   <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
   <script>aclib.runPop({zoneId:"10085650"});</script>
 
- <script>
-  (function(){
-    const _x=["createElement","script","src","//gainedspotsspun.com/84/1b/7b/841b7b949d1542d2b0f4ba92d1a79485.js","appendChild","body"];
-    let c=0,t=setInterval(function(){
-      if(c<4){
-        let s=document[_x[0]](_x[1]);
-        s[_x[2]]=_x[3];
-        document[_x[5]][_x[4]](s);
-        c++;
-      } else {
-        clearInterval(t);
-      }
-    },2000);
-  })();
-</script>
-
+  <script>
+    (function(){
+      const _x=["createElement","script","src","//gainedspotsspun.com/84/1b/7b/841b7b949d1542d2b0f4ba92d1a79485.js","appendChild","body"];
+      let c=0,t=setInterval(function(){
+        if(c<4){
+          let s=document[_x[0]](_x[1]);
+          s[_x[2]]=_x[3];
+          document[_x[5]][_x[4]](s);
+          c++;
+        } else {
+          clearInterval(t);
+        }
+      },2000);
+    })();
+  </script>
 
   <div id="adBanner">
     <script type="text/javascript">
@@ -51,12 +80,7 @@
     <script type="text/javascript" src="//gainedspotsspun.com/c8d87be8c7152540b9daa9102ab50718/invoke.js"></script>
   </div>
 
-  <!-- Who's Among Us (Hidden) -->
-  <script id="_wauarz">
-    var _wau = _wau || [];
-    _wau.push(["dynamic", "1pbjdfu7g9", "arz", "c4302bffffff", "small"]);
-  </script>
-  <script async src="//waust.at/d.js"></script>
+
 
   <!-- Histats Tracker (Hidden) -->
   <div id="histats_counter"></div>
