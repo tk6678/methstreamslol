@@ -3,28 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome | playembed.xyz</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      text-align: center;
-    }
-    h1 {
-      color: #0f0;
-      text-shadow: 0 0 5px #0f0, 0 0 15px #0f0;
-    }
-  </style>
+  <title>Playembed - Free All Stream Schedule Daily</title>
+  <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Welcome to playembed.xyz</h1>
+  <header>
+    ❖ 𝙋𝙇𝘼𝙔𝙀𝙈𝘽𝙀𝘿 ❖
+  </header>
+  <button id="themeToggle" aria-label="Toggle Theme">
+    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+      <path d="M21 12.79A9 9 0 0111.21 3a7 7 0 1010 9.79z" />
+    </svg>
+    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" viewBox="0 0 24 24"
+      style="display: none;">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" stroke="black" stroke-width="2" />
+      <line x1="12" y1="21" x2="12" y2="23" stroke="black" stroke-width="2" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="black" stroke-width="2" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="black" stroke-width="2" />
+      <line x1="1" y1="12" x2="3" y2="12" stroke="black" stroke-width="2" />
+      <line x1="21" y1="12" x2="23" y2="12" stroke="black" stroke-width="2" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="black" stroke-width="2" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="black" stroke-width="2" />
+    </svg>
+  </button>
+  <div class="container">
+    <div class="time" id="clock"></div>
+    <input type="text" id="searchInput" placeholder="Search by team or league..." onkeyup="filterTable()" />
+    <div class="title">Saturday, June 21, 2025</div>
+    <center><button onclick="bookmarkSite()"
+        style="padding:10px 20px; background:#111; border: 1px solid #333; color:white; border-radius:6px; cursor:pointer; font-weight:bold; font-size:16px;">
+        🔖 Bookmark This Site
+      </button></center>
+    <div class="section-header">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UFC_Logo.svg/2560px-UFC_Logo.svg.png"
+        alt="MotoGP Logo" class="motogp-logo">
+      UFC / MMA
+    </div>
+    <table id="scheduleTable">
+      <thead>
+        <tr>
+          <td style="border-left: 3px solid #22c55e background-color: #222;">#</td>
+          <th>Time</th>
+          <th>League</th>
+          <th>Teams</th>
+          <th>CH ID</th>
+          <th>Embed Copy / Watch</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border-left: 3px solid #22c55e">1</td>
+          <td>3:00 PM ET</td>
+          <td>UFC FIGHT NIGHT</td>
+          <td>UFC Main Card - Jamahal Hill vs Khalil Rountree</td>
+          <td><code>TNTSports1[UK]</code></td>
+          <td>
+            <div class="button-group">
+              <button class="copy-btn"
+                onclick="copyToClipboard(this, 'https://playembed.xyz/channel/TNTSports1[UK].html')">Copy Embed</button>
+              <button class="watch-btn" onclick="watchNow('https://playembed.xyz/channel/TNTSports1[UK].html')">Watch
+                Stream</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-left: 3px solid #22c55e">2</td>
+          <td>12:00 PM ET</td>
+          <td>UFC FIGHT NIGHT</td>
+          <td>UFC Preliminary Card - KoSeok-hyeon vs Oban Elliott</td>
+          <td><code>TNTSports1[UK]</code></td>
+          <td>
+            <div class="button-group">
+              <button class="copy-btn"
+                onclick="copyToClipboard(this, 'https://playembed.xyz/channel/TNTSports1[UK].html')">Copy Embed</button>
+              <button class="watch-btn" onclick="watchNow('https://playembed.xyz/channel/TNTSports1[UK].html')">Watch
+                Stream</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>
+    &copy; 2025 Playembed. All rights reserved.
+  </footer>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeZone = 'America/New_York';
+      const dateString = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone });
+      const timeString = now.toLocaleTimeString('en-US', { timeZone, hour12: true });
+      document.getElementById('clock').textContent = `${dateString} — ${timeString} ET`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+    function copyToClipboard(button, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = '✓ Embed Copied!';
+        button.classList.add('copied');
+        setTimeout(() => {
+          button.textContent = 'Copy Embed';
+          button.classList.remove('copied');
+        }, 2000);
+      });
+    }
+    function filterTable() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#scheduleTable tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    function bookmarkSite() {
+      const title = document.title;
+      const url = window.location.href;
+
+      if (window.sidebar && window.sidebar.addPanel) {
+        window.sidebar.addPanel(title, url, "");
+      } else if (window.external && ('AddFavorite' in window.external)) {
+        window.external.AddFavorite(url, title);
+      } else {
+        alert('Press Ctrl+D (Windows) or Command+D (Mac) to bookmark this page manually.');
+      }
+    }
+    const toggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+    const moonIcon = document.getElementById("moonIcon");
+    const sunIcon = document.getElementById("sunIcon");
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("light");
+      body.classList.toggle("dark");
+
+      if (body.classList.contains("light")) {
+        moonIcon.style.display = "none";
+        sunIcon.style.display = "inline";
+      } else {
+        sunIcon.style.display = "none";
+        moonIcon.style.display = "inline";
+      }
+    });
+
+    function watchNow(url) {
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
