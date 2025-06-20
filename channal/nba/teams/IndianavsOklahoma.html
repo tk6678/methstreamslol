@@ -27,21 +27,18 @@
     }
 
     #adBanner {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      z-index: 10;
-      background: #000;
-      padding: 5px;
-      box-sizing: border-box;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      padding: 0;
+      margin: 0;
     }
 
     @media (max-width: 500px) {
       #adBanner {
         width: 320px;
         height: 50px;
-        bottom: 5px;
-        right: 5px;
       }
     }
 
@@ -54,27 +51,27 @@
 
   <div class="stream-wrapper">
     <iframe src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen loading="lazy"></iframe>
+  </div>
 
-    <!-- ✅ Banner ad perfectly bottom-right -->
-    <div id="adBanner">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : 'c8d87be8c7152540b9daa9102ab50718',
-          'format' : 'iframe',
-          'height' : 60,
-          'width' : 468,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="//gainedspotsspun.com/c8d87be8c7152540b9daa9102ab50718/invoke.js"></script>
-    </div>
+  <!-- ✅ Banner Ad at Bottom Right (No background, no padding, fully visible) -->
+  <div id="adBanner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'c8d87be8c7152540b9daa9102ab50718',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//gainedspotsspun.com/c8d87be8c7152540b9daa9102ab50718/invoke.js"></script>
   </div>
 
   <!-- ✅ AdCash Pop -->
   <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
   <script>aclib.runPop({zoneId: "10085650"});</script>
 
-  <!-- ✅ Popup Ad multiple times -->
+  <!-- ✅ Popup Ad Script -->
   <script>
     (function () {
       const _x = ["createElement", "script", "src", "//gainedspotsspun.com/84/1b/7b/841b7b949d1542d2b0f4ba92d1a79485.js", "appendChild", "body"];
@@ -91,14 +88,14 @@
     })();
   </script>
 
-  <!-- ✅ Who's Among Us (Hidden) -->
+  <!-- ✅ Hidden: Who's Among Us -->
   <script id="_wauarz">
     var _wau = _wau || [];
     _wau.push(["dynamic", "1pbjdfu7g9", "arz", "c4302bffffff", "small"]);
   </script>
   <script async src="//waust.at/d.js"></script>
 
-  <!-- ✅ Histats Tracker (Hidden) -->
+  <!-- ✅ Hidden: Histats -->
   <div id="histats_counter"></div>
   <script type="text/javascript">
     var _Hasync = _Hasync || [];
