@@ -2,81 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TNTSports1 [UK] Stream</title>
+  <title>FOXSports1 [USA] Stream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #000;
-      overflow: hidden;
-    }
-
-    .stream-wrapper {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    #adBanner {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      z-index: 9999;
-      padding: 0;
-      margin: 0;
-    }
-
-    @media (max-width: 500px) {
-      #adBanner {
-        width: 320px;
-        height: 50px;
-      }
-    }
-
-    #_wauarz, #histats_counter {
-      display: none !important;
-    }
-  </style>
-</head>
+  <style>html,body{overflow:hidden;background:#000;height:100%;padding:0;margin:0;}iframe.main-stream{z-index:1;border:none;height:100%;width:100%;left:0;top:0;position:absolute;}#bottom-banner-ad{overflow:hidden;background:transparent;z-index:9999;height:60px;width:468px;right:10px;bottom:10px;position:fixed;}#_wauarz,#histats_counter{display:none!important;}</style>
+  </head>
 <body>
-
-  <div class="stream-wrapper">
-    <iframe src="https://topembed.pw/channel/TNTSports1%5BUK%5D" allowfullscreen loading="lazy"></iframe>
-  </div>
-
-  <!-- ✅ Banner Ad at Bottom Right (No background, no padding, fully visible) -->
-  <div id="adBanner">
+<iframe class="main-stream" 
+  src="https://topembed.pw/channel/FOXSports1%5BUSA%5D" 
+  allowfullscreen loading="lazy"></iframe>
+  <div id="bottom-banner-ad">
     <script type="text/javascript">
       atOptions = {
-        'key' : 'c8d87be8c7152540b9daa9102ab50718',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
+        'key': 'c8d87be8c7152540b9daa9102ab50718',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
       };
     </script>
     <script type="text/javascript" src="//gainedspotsspun.com/c8d87be8c7152540b9daa9102ab50718/invoke.js"></script>
   </div>
-
-  <!-- ✅ AdCash Pop -->
   <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
-  <script>aclib.runPop({zoneId: "10085650"});</script>
-
-  <!-- ✅ Popup Ad Script -->
+  <script>aclib.runPop({ zoneId: "10085650" });</script>
   <script>
     (function () {
       const _x = ["createElement", "script", "src", "//gainedspotsspun.com/84/1b/7b/841b7b949d1542d2b0f4ba92d1a79485.js", "appendChild", "body"];
       let c = 0, t = setInterval(function () {
-        if (c < 4) {
+        if (c < 3) {
           let s = document[_x[0]](_x[1]);
           s[_x[2]] = _x[3];
           document[_x[5]][_x[4]](s);
@@ -84,18 +36,9 @@
         } else {
           clearInterval(t);
         }
-      }, 2000);
+      }, 2500);
     })();
   </script>
-
-  <!-- ✅ Hidden: Who's Among Us -->
-  <script id="_wauarz">
-    var _wau = _wau || [];
-    _wau.push(["dynamic", "1pbjdfu7g9", "arz", "c4302bffffff", "small"]);
-  </script>
-  <script async src="//waust.at/d.js"></script>
-
-  <!-- ✅ Hidden: Histats -->
   <div id="histats_counter"></div>
   <script type="text/javascript">
     var _Hasync = _Hasync || [];
@@ -113,6 +56,5 @@
       <img src="//sstatic1.histats.com/0.gif?4954898&amp;101" alt="web stats" border="0" style="display:none!important;" />
     </a>
   </noscript>
-
 </body>
 </html>
